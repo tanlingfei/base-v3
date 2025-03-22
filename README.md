@@ -17,5 +17,25 @@ Jwt
 电脑端功能运行截图
 <div align="center">
   <img src="http://192.74.226.94:8888/note/q1.png">
+  <img src="http://192.74.226.94:8888/note/q2.png">
+  <img src="http://192.74.226.94:8888/note/q3.png">
+  <img src="http://192.74.226.94:8888/note/q4.png">
+  <img src="http://192.74.226.94:8888/note/q5.png">
+  <img src="http://192.74.226.94:8888/note/q7.png">
+</div>
+手机端功能运行截图
+<div align="center">
+  <img src="http://192.74.226.94:8888/note/mobile/微信图片_20250322011420.jpg">
+  <img src="http://192.74.226.94:8888/note/微信图片_20250322011437.jpg">
+  <img src="http://192.74.226.94:8888/note/微信图片_20250322011445.jpg">
+  <img src="http://192.74.226.94:8888/note/微信图片_20250322011452.jpg">
+  <img src="http://192.74.226.94:8888/note/微信图片_20250322011459.jpg">
+  <img src="http://192.74.226.94:8888/note/微信图片_20250322011506.jpg">
+</div>
+电脑端功能运行截图
+<div align="center">
+  <img src="http://192.74.226.94:8888/note/h1.png">
+  <img src="http://192.74.226.94:8888/note/h2.png">
+  <img src="http://192.74.226.94:8888/note/h3.png">
 </div>
 
