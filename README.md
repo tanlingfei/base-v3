@@ -16,6 +16,6 @@ Jwt
 
 电脑端功能运行截图
 <div align="center">
-  <img src="https://github.com/tanlingfei/base-v3/tree/master/note/q1.png">
+  <img src="http://192.74.226.94:8888/note/q1.png">
 </div>
 
