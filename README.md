@@ -14,6 +14,8 @@ Jwt
 物车管理
 前台模块功能: 登录，注册，首页商品浏览，商品详情，添加购物车，购物车结算，个人中心查看，我的订单查看
 
+<h2><font color="red">联系方式V:lanf0921  淘宝: tangtang源码店</font></h2>
+
 电脑端功能运行截图
 <div align="center">
   <img src="http://192.74.226.94:8888/note/q1.png">
