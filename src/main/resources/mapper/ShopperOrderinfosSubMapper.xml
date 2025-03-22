@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.v3.business.mapper.ShopperOrderinfosSubMapper">
+    <resultMap id="shopperOrderinfosSubMap" type="com.v3.business.model.ShopperOrderinfosSub" autoMapping="true">
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+            x1.order_id
+            ,x1.commodity_id
+            ,x1.quantity
+            ,x1.create_time
+            ,x1.update_time
+            ,x1.is_deleted
+            ,x1.id,x2.name as commodityName
+
+    </sql>
+    <sql id="middles">
+        from shopper_orderinfos_sub x1 left join commodity_commodityinfos x2 on x1.commodity_id=x2.id
+    </sql>
+    <sql id="conditions">
+                <if test="vo.orderId != null and vo.orderId != ''">
+              and x1.order_id=#{vo.orderId}
+                </if>
+                <if test="vo.commodityId != null and vo.commodityId != ''">
+              and x1.commodity_id=#{vo.commodityId}
+                </if>
+                <if test="vo.quantity != null and vo.quantity != ''">
+              and x1.quantity like CONCAT('%',#{vo.quantity},'%')
+                </if>
+        <if test="vo.createTimeBegin != null and vo.createTimeBegin != ''">
+              and x1.create_time >= #{vo.createTimeBegin}
+        </if>
+        <if test="vo.createTimeEnd != null and vo.createTimeEnd != ''">
+             and x1.create_time &lt;= #{vo.createTimeEnd}
+        </if>
+        <if test="vo.updateTimeBegin != null and vo.updateTimeBegin != ''">
+             and x1.create_time >= #{vo.updateTimeBegin}
+        </if>
+        <if test="vo.updateTimeEnd != null and vo.updateTimeEnd != ''">
+             and x1.create_time &lt;= #{vo.updateTimeEnd}
+        </if>
+             and x1.is_deleted = 0 order by x1.create_time desc
+    </sql>
+    <select id="selectPage" resultMap="shopperOrderinfosSubMap">
+        select <include refid="columns" />
+        <include refid="middles" />
+        <where>
+            <include refid="conditions" />
+        </where>
+    </select>
+    <select id="queryList" resultMap="shopperOrderinfosSubMap">
+        select <include refid="columns" />
+        <include refid="middles" />
+        <where>
+            <include refid="conditions" />
+        </where>
+    </select>
+</mapper>

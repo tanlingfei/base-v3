@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.v3.business.mapper.ShopperCartinfosMapper">
+    <resultMap id="shopperCartinfosMap" type="com.v3.business.model.ShopperCartinfos" autoMapping="true">
+    </resultMap>
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="columns">
+        x1
+        .
+        quantity
+        ,x1.commodityInfos_id,commodityCommodityinfos1.name as commodityinfosName,
+            commodityCommodityinfos1.price
+            ,x1.user_id,sysUser2.username as userName
+            ,x1.create_time
+            ,x1.update_time
+            ,x1.is_deleted
+            ,x1.id
+
+    </sql>
+    <sql id="middles">
+        from shopper_cartinfos x1
+                left join (select * from commodity_commodityinfos where is_deleted=0) commodityCommodityinfos1  on x1.commodityInfos_id=commodityCommodityinfos1.id
+                left join (select * from sys_user where is_deleted=0) sysUser2  on x1.user_id=sysUser2.id
+    </sql>
+    <sql id="conditions">
+        <if test="vo.commodityinfosId != null and vo.commodityinfosId != ''">
+            and x1.commodityInfos_id=#{vo.commodityinfosId}
+        </if>
+        <if test="vo.commodityinfosName != null and vo.commodityinfosName != ''">
+            and commodityCommodityinfos1.name like CONCAT('%',#{vo.commodityinfosName},'%')
+        </if>
+        <if test="vo.userId != null and vo.userId != ''">
+            and x1.user_id=#{vo.userId}
+        </if>
+        <if test="vo.userName != null and vo.userName != ''">
+            and sysUser2.username like CONCAT('%',#{vo.userName},'%')
+        </if>
+        <if test="vo.createTimeBegin != null and vo.createTimeBegin != ''">
+            and x1.create_time >= #{vo.createTimeBegin}
+        </if>
+        <if test="vo.createTimeEnd != null and vo.createTimeEnd != ''">
+            and x1.create_time &lt;= #{vo.createTimeEnd}
+        </if>
+        <if test="vo.updateTimeBegin != null and vo.updateTimeBegin != ''">
+            and x1.create_time >= #{vo.updateTimeBegin}
+        </if>
+        <if test="vo.updateTimeEnd != null and vo.updateTimeEnd != ''">
+            and x1.create_time &lt;= #{vo.updateTimeEnd}
+        </if>
+        and x1.is_deleted = 0 order by x1.create_time desc
+    </sql>
+    <select id="selectPage" resultMap="shopperCartinfosMap">
+        select
+        <include refid="columns"/>
+        <include refid="middles"/>
+        <where>
+            <include refid="conditions"/>
+        </where>
+    </select>
+    <select id="queryList" resultMap="shopperCartinfosMap">
+        select
+        <include refid="columns"/>
+        <include refid="middles"/>
+        <where>
+            <include refid="conditions"/>
+        </where>
+    </select>
+</mapper>
