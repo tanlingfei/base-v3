@@ -15,4 +15,7 @@ Jwt
 前台模块功能: 登录，注册，首页商品浏览，商品详情，添加购物车，购物车结算，个人中心查看，我的订单查看
 
 电脑端功能运行截图
+<div align="center">
+  <img src="https://github.com/tanlingfei/base-v3/tree/master/note/q1.png">
+</div>
 
