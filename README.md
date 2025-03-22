@@ -16,6 +16,10 @@ Jwt
 
 <h2><font color="red">联系方式V:lanf0921  淘宝: tangtang源码店</font></h2>
 
+前台演示链接: <a href="http://192.74.226.94:8899">http://192.74.226.94:8899</a>
+
+后台演示链接: <a href="http://192.74.226.94:8888">http://192.74.226.94:8888</a>
+
 电脑端功能运行截图
 <div align="center">
   <img src="http://192.74.226.94:8888/note/q1.png">
